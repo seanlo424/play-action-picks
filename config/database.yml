@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: play-action-picks_production
-  #username: play-action-picks
-  #password: <%= ENV['PLAY-ACTION-PICKS_DATABASE_PASSWORD'] %>
+  username: play-action-picks
+  password: <%= ENV['PLAY-ACTION-PICKS_DATABASE_PASSWORD'] %>

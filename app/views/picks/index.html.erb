@@ -1,2 +1,10 @@
-<h1>Punters and Pickers</h1>
+<% @picks.each do |pick| %>
+	<div>
+		<h1><%= pick.game %></h1>
+		<h2><%= pick.team %></h2><br />
+		
+	</div>
 
+	<hr />
+<% end %>
+		

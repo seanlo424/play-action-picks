@@ -3,6 +3,7 @@ class PicksController < ApplicationController
   end
 
   def index
+  	@picks = Pick.all
   end
 
   def update

@@ -1,3 +1,31 @@
-body {
-	background-color: #fafafa;
+@import "bootstrap";
+
+.booyah-box {
+	-moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+	-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+	box-shadow: 1px 1px 2px 0 #d0d0d0;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+}
+
+.navbar {
+	font-family: "Helvetica Neue", Helvetica;
+	font-weight: 200;
+	box-shadow: 0px 1px 3px #2a2a2a;
+	background: image_url('circle-blues.png');
+}
+
+.navbar-inverse a.navbar-brand {
+	font-family: "Helvetica Neue", Helvetica;
+	font-weight: 100;
+	color: white;
+}
+
+.body {
+background: image_url('circle-blues.png');
+}
+
+h1, h2 {
+	color: #e4e4e4;
 }

@@ -1,4 +1,4 @@
-
+@import "bootstrap";
 
 .booyah-box {
 	-moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -22,10 +22,7 @@
 	color: white;
 }
 
-body {
-background: image_url('circle-blues.png');
-}
-
-h1, h2 {
-	color: #e4e4e4;
+.hero {
+	background: image-url('hero.jpg');
+	height: 370px;
 }

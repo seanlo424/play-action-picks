@@ -29,4 +29,35 @@
   -o-background-size: cover;
   background-size: cover;
   height: 670px;
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+h1 {
+	margin: 0;
+	color: #08F7E8;
+}
+
+h2, .navbar {
+	margin: 0;
+}
+
+.frosty {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.frosty h1 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 400;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.frosty h2 {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 300;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+body {
+	background: image_url('grey_wash_wall.png');
 }

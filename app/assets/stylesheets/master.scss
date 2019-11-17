@@ -22,6 +22,10 @@
 	color: white;
 }
 
+.collapse navbar-collapse a.navbarTogglerDemo02 {
+color: #323434;
+}
+
 .hero {
 	 background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -34,16 +38,17 @@
 
 h1 {
 	margin: 0;
-	color: #08F7E8;
+	color: #FAFBF8;
 }
 
 h2, .navbar {
 	margin: 0;
+	color: #8F9595;
 }
 
 .frosty {
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #FAFBF8;
 }
 
 .frosty h1 {
@@ -61,3 +66,9 @@ h2, .navbar {
 body {
 	background: image_url('grey_wash_wall.png');
 }
+
+.btn {
+	color: #8F9595;
+	background: #FAFBF8;  
+}
+

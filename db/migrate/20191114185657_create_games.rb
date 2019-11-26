@@ -1,7 +1,9 @@
 class CreateGames < ActiveRecord::Migration[5.2]
   def change
     create_table :games do |t|
-    	t.string :ht_id
+    	t.integer :ht_id, index: true
+    	t.integer :at_id, index: true
+    	t.string :api_event_id, index: true
     	
 
       t.timestamps

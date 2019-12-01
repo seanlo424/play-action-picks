@@ -16,26 +16,34 @@ ActiveRecord::Schema.define(version: 2019_11_22_044359) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
+    t.integer "ht_id"
+    t.integer "at_id"
+    t.string "api_event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "teams"
-    t.integer "api_id"
-    t.index ["api_id"], name: "index_games_on_api_id"
+    t.index ["api_event_id"], name: "index_games_on_api_event_id"
+    t.index ["at_id"], name: "index_games_on_at_id"
+    t.index ["ht_id"], name: "index_games_on_ht_id"
   end
 
   create_table "picks", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "game_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "week"
+    t.index ["game_id"], name: "index_picks_on_game_id"
+    t.index ["team_id"], name: "index_picks_on_team_id"
+    t.index ["user_id"], name: "index_picks_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.integer "api_team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "api_id"
-    t.string "games"
-    t.index ["api_id"], name: "index_teams_on_api_id"
+    t.index ["api_team_id"], name: "index_teams_on_api_team_id"
   end
 
   create_table "users", force: :cascade do |t|

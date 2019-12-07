@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_191928) do
+ActiveRecord::Schema.define(version: 2019_12_07_211626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2019_12_01_191928) do
     t.string "api_event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.string "week"
+    t.string "season"
     t.index ["api_event_id"], name: "index_games_on_api_event_id"
     t.index ["at_id"], name: "index_games_on_at_id"
     t.index ["ht_id"], name: "index_games_on_ht_id"
@@ -32,7 +35,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_191928) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "week"
     t.index ["game_id"], name: "index_picks_on_game_id"
     t.index ["team_id"], name: "index_picks_on_team_id"
     t.index ["user_id"], name: "index_picks_on_user_id"

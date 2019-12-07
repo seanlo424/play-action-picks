@@ -14,10 +14,19 @@ h1 {
 	color-outline: #000000;
 }
 
-#uncheck>input { display: none }
-input:checked + label { display: none }
-input:not(:checked) + label + label{ display: none } 
+a {
+  font-size: 24px;
+  color: #070808;
+}
 
-#uncheck label {
-  cursor: pointer; user-select: none;
+.pickem-pick.locked, .pickem-pick.selected {
+    cursor: default;
+}
+
+.booyah-box {
+  height: 720px;
+}
+
+.Save_Picks {
+  font-size: 24px;
 }

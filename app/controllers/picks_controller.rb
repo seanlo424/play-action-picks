@@ -2,21 +2,31 @@ class PicksController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
   def create
-  	#current_user.picks.create(pick_params)
-  	#redirect_to root_path
+  	@picks = Pick.new(params[:pick])
+    if @picks.save
+      redirect_to @picks
+    else
+      
+    end
   end
 
   def index
-  	#@pick = Pick.all
+    @games = Game.where(week: "14", season: "2019")
+    @picks = current_user.picks.where(game_id: @games.pluck(:id))
+    @new_picks = []
+    @games.each do |game|
+      unless @picks.detect {|pick| pick.game_id == game.id} 
+        @new_picks.push(Pick.new(user: current_user, game: game))
+      end
+    end
+    @new_picks.concat(@picks)
   end
 
   def update
+
   end
 
-  #def pick_params
-  	#params.require(:pick).permit(:picks)
-  #end
-
- # def pick
-  #end
 end
+
+ 
+

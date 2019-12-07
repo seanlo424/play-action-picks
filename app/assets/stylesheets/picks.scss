@@ -13,3 +13,11 @@ h1 {
 	color: #8F9595;
 	color-outline: #000000;
 }
+
+#uncheck>input { display: none }
+input:checked + label { display: none }
+input:not(:checked) + label + label{ display: none } 
+
+#uncheck label {
+  cursor: pointer; user-select: none;
+}

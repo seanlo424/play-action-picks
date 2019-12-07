@@ -18,4 +18,10 @@
 //= require popper
 //= require tether
 //= require bootstrap-sprockets
+//= require paloma
+//= require initializer
 //= require_tree .
+
+$(document).ready( function() {
+	Paloma.engine.start();
+});

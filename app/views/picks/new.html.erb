@@ -3,7 +3,7 @@
 	<h1>Punt or Pick</h1>
 <br />
 
-<%= link_to 'Punt My Picks', new_create_path, class: 'btn btn-success' %>
+<%= link_to 'Punt My Picks', new_pick_path, class: 'btn btn-success' %>
 <br />
 
 	<div id='pickem-pick'>
@@ -17,7 +17,7 @@
   </div>
   <br />
   
-		<%= link_to 'Save Picks', new_create_path, class: 'btn btn-success' %>
+		<%= link_to 'Save Picks', new_pick_path, class: 'btn btn-success' %>
 	<br />
 
 	<% @new_picks.each do |pick| %>

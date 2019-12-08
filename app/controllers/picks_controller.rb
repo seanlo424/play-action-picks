@@ -1,13 +1,16 @@
 class PicksController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
-  def create
+  def new
   	@picks = Pick.new(params[:pick])
     if @picks.save
       redirect_to @picks
     else
       
     end
+  end
+
+  def create
   end
 
   def index
@@ -27,7 +30,7 @@ class PicksController < ApplicationController
   end
 
  def show
-  end
+ end
 
 end
 

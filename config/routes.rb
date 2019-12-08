@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :picks, :index, :new, :create
-  #get 'group_picks/index'
+  get 'group_picks/index', to: 'group_picks#index'
   #post 'picks/create'
   #get 'picks/index'
   #get 'picks/update'
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'picks#index'
+  root to: 'picks#index'
 end

@@ -28,6 +28,7 @@ gem 'simple_form'
 gem 'rest-client'
 gem 'paloma'
 gem 'simple_form'
+gem 'figaro'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

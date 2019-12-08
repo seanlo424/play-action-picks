@@ -26,6 +26,9 @@ class PicksController < ApplicationController
 
   end
 
+ def show
+  end
+
 end
 
  

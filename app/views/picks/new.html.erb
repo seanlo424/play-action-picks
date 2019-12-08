@@ -3,7 +3,7 @@
 	<h1>Punt or Pick</h1>
 <br />
 
-<%= link_to 'Punt My Picks', picks_create_path, class: 'btn btn-success' %>
+<%= link_to 'Punt My Picks', new_create_path, class: 'btn btn-success' %>
 <br />
 
 	<div id='pickem-pick'>
@@ -17,15 +17,15 @@
   </div>
   <br />
   
-		<%= link_to 'Save Picks', picks_create_path, class: 'btn btn-success' %>
+		<%= link_to 'Save Picks', new_create_path, class: 'btn btn-success' %>
 	<br />
 
-	<%# @new_picks.each do |pick| %>
-		<%# simple_form_for(pick) do |f| %>
-			<%#= f.input :team, as: :radio_buttons, collection: [pick.game.home_team, pick.game.away_team] %>
-			<%#= f.button :submit %>
-		<%# end %>
-	<%# end %>
+	<% @new_picks.each do |pick| %>
+		<% simple_form_for(pick) do |f| %>
+			<%= f.input :team, as: :radio_buttons, collection: [pick.game.home_team, pick.game.away_team] %>
+			<%= f.button :submit %>
+		<% end %>
+	<% end %>
 
 
 </div>

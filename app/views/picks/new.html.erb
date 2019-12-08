@@ -20,12 +20,13 @@
 		<%= link_to 'Save Picks', picks_create_path, class: 'btn btn-success' %>
 	<br />
 
-	<% @new_picks.each do |pick| %>
-		<% simple_form_for(pick) do |f| %>
-			<%= f.input :team, as: :radio_buttons, collection: [pick.game.home_team, pick.game.away_team] %>
-			<%= f.button :submit %>
-		<% end %>
-	<% end %>
+	<%# @new_picks.each do |pick| %>
+		<%# simple_form_for(pick) do |f| %>
+			<%#= f.input :team, as: :radio_buttons, collection: [pick.game.home_team, pick.game.away_team] %>
+			<%#= f.button :submit %>
+		<%# end %>
+	<%# end %>
+
 
 </div>
 

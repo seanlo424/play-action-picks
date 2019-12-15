@@ -5,6 +5,11 @@ class PicksController < ApplicationController
     @picks = Pick.all
   end
 
+  def show
+    @pick = Pick.find(params[:pick_id])
+    @subjects = Subject.all
+  end
+
   def new
   	@picks = Pick.new(params[:pick])
     @games = Game.where(week: "14", season: "2019")
@@ -21,15 +26,36 @@ class PicksController < ApplicationController
     @picks = Pick.new(params[:pick])
 
     if @picks.save
-      redirect_to @picks
+      redirect_to :action => 'list'
     else
       @subjects = Subject.all
-      render :new 
+      render :action => 'new' 
     end
   end
 
   def pick_params
     params.require(:picks)
+  end
+
+  def edit
+    @pick = Pick.find(params[:pick_id])
+  end
+
+  def update
+    @picks = Pick.find(params[:pick_id])
+
+    if @picks.update_attributes(pick_param)
+      redirect_to :action => 'show', :id => @picks
+    else
+      @subjects = Subject.all
+      render :action => 'edit'
+    end
+
+  end
+
+  def delete
+    Pick.find(params[:pick_id]).destroy
+    redirect_to :action => 'list'
   end
 
   def index
@@ -43,16 +69,6 @@ class PicksController < ApplicationController
     end
     @new_picks.concat(@picks)
   end
-
-  def update
-
-  end
-
- def show
-  @pick = Pick.find(params[:pick_id])
- end
-
- 
 
 end
 end

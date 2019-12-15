@@ -14,9 +14,15 @@ h1 {
 	color-outline: #000000;
 }
 
-a {
+a1 {
+  font-size: 24px;
+  text-align: left;
+}
+
+a2 {
   font-size: 24px;
   color: #070808;
+  text-align: right;
 }
 
 .pickem-pick.locked, .pickem-pick.selected {
@@ -30,3 +36,4 @@ a {
 .Save_Picks {
   font-size: 24px;
 }
+

@@ -17,7 +17,7 @@ json_response["events"].each do |e|
 		away_team = Team.find_or_create_by(name: team1["name"], api_team_id: team1["team_normalized_id"])
 	end
 
-	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: event["event_id"])
+	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: e["event_id"])
 end
  # "teams": [
  #                {

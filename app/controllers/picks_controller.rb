@@ -1,27 +1,6 @@
 class PicksController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
-  def list
-    @picks = Pick.all
-  end
-
-  def show
-    @pick = Pick.find(params[:pick_id])
-    @subjects = Subject.all
-  end
-
-  def new
-  	@picks = Pick.new(params[:pick])
-    @games = Game.where(week: "14", season: "2019")
-    @picks = current_user.picks.where(game_id: @games.pluck(:id))
-    @new_picks = []
-    @games.each do |game|
-      unless @picks.detect {|pick| pick.game_id == game.id} 
-        @new_picks.push(Pick.new(user: current_user, game: game))
-      end
-    @new_picks.concat(@picks)
-  end
-
   def create
     @picks = Pick.new(params[:pick])
 
@@ -31,14 +10,6 @@ class PicksController < ApplicationController
       @subjects = Subject.all
       render :action => 'new' 
     end
-  end
-
-  def pick_params
-    params.require(:picks)
-  end
-
-  def edit
-    @pick = Pick.find(params[:pick_id])
   end
 
   def update
@@ -53,11 +24,6 @@ class PicksController < ApplicationController
 
   end
 
-  def delete
-    Pick.find(params[:pick_id]).destroy
-    redirect_to :action => 'list'
-  end
-
   def index
     @games = Game.where(week: "14", season: "2019")
     @picks = current_user.picks.where(game_id: @games.pluck(:id))
@@ -70,7 +36,11 @@ class PicksController < ApplicationController
     @new_picks.concat(@picks)
   end
 
-end
+  def pick_params
+    params.require(:picks)
+  end
+
+
 end
 
  

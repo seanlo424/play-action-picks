@@ -4,19 +4,21 @@ response = RestClient.get(
 )
 json_response=JSON.parse(response.body)
 
-event = json_response["events"].first
-team1 = event["teams"].first
-team2 = event["teams"].second
+json_response["events"].each do |e|
+	team1 = e["teams"].first
+	team2 = e["teams"].second
 
-if team1["is_home"] 
-	home_team = Team.create(name: team1["name"], api_id: team1["team_normalized_id"])
-	away_team = Team.create(name: team2["name"], api_id: team2["team_normalized_id"])
-else 
-	home_team = Team.create(name: team2["name"], api_id: team2["team_normalized_id"])
-	away_team = Team.create(name: team1["name"], api_id: team1["team_normalized_id"])
+
+	if team1["is_home"] 
+		home_team = Team.find_or_create_by(name: team1["name"], api_team_id: team1["team_normalized_id"])
+		away_team = Team.find_or_create_by(name: team2["name"], api_team_id: team2["team_normalized_id"])
+	else 
+		home_team = Team.find_or_create_by(name: team2["name"], api_team_id: team2["team_normalized_id"])
+		away_team = Team.find_or_create_by(name: team1["name"], api_team_id: team1["team_normalized_id"])
+	end
+
+	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: event["event_id"])
 end
-
-game = Game.create(ht_id: home_team.id, at_id: away_team.id, api_event_id: event["event_id"])
  # "teams": [
  #                {
  #                    "team_id": 37847,

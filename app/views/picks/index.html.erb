@@ -28,7 +28,28 @@
 </thead>
   <br />
   
-		<%= link_to 'Save Picks', picks_path, class: 'btn btn-success' %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Submit Form</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#submitBtn").click(function(){        
+        $("#myForm").submit(); // Submit the form
+    });
+});
+</script>
+</head>
+<body>
+    <form action="/examples/html/action.php" method="post" id="myForm">
+        
+        
+        <button class="btn btn-success" id="submitBtn">Submit My Picks</button>
+    </form>
+</body>
+</html>                     
 	<br />
 
 	<% @new_picks.each do |pick| %>

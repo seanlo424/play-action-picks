@@ -25,7 +25,7 @@ class PicksController < ApplicationController
   end
 
   def index
-    @games = Game.where(week: "14", season: "2019")
+    @games = Game.where(week: "9", season: "2019")
     @picks = current_user.picks.where(game_id: @games.pluck(:id))
     @new_picks = []
     @games.each do |game|

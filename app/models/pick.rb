@@ -1,5 +1,5 @@
 class Pick < ApplicationRecord
 	belongs_to :user
-	belongs_to :games
+	belongs_to :game
 	
 end

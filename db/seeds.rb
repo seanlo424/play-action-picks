@@ -16,8 +16,16 @@ json_response["events"].each do |e|
 		home_team = Team.find_or_create_by(name: team2["name"], api_team_id: team2["team_normalized_id"])
 		away_team = Team.find_or_create_by(name: team1["name"], api_team_id: team1["team_normalized_id"])
 	end
+	puts home_team.name
+	puts away_team.name
+	puts home_team.persisted?
+	puts away_team.persisted?
+	puts home_team.errors.full_messages
+	puts away_team.errors.full_messages
 
 	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: e["event_id"])
+	puts game.persisted?
+	puts game.errors.full_messages
 end
  # "teams": [
  #                {

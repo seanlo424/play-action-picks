@@ -23,7 +23,7 @@ json_response["events"].each do |e|
 	puts home_team.errors.full_messages
 	puts away_team.errors.full_messages
 
-	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: e["event_id"])
+	game = Game.find_or_create_by(ht_id: home_team.id, at_id: away_team.id, api_event_id: e["event_id"], week: "9", season: "2019")
 	puts game.persisted?
 	puts game.errors.full_messages
 end

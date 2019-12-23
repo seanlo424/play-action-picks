@@ -1,12 +1,13 @@
 <br />
 <div class="booyah-box col-10 offset-1 text-center">
 	<h1>Punt or Pick</h1>
-
+	<br />
+		<%= link_to 'Punt My Picks', picks_path, class: 'btn btn-success' %>
+	<br />
 	<a1>Matchup</a1>
-
 <br />
 
-<%= link_to 'Punt My Picks', picks_path, class: 'btn btn-success' %>
+
 
   
 
@@ -24,12 +25,10 @@
 
 
 
-        	<% @new_picks.each do |pick| %>
-        	<% pick.game.home_team.name %>
-        	<% pick.game.away_team.name %>
-		<%= simple_form_for(pick, remote: true, ) do |f| %>
-			<%= f.input :team_id, as: :radio_buttons, collection: [pick.game.home_team.id, pick.game.away_team.id] %>
-		<% end %>
+<% @new_picks.each do |pick| %>
+ <%= simple_form_for(pick, remote: true, ) do |f| %>
+ <%= f.input :team_id, as: :radio_buttons, collection: [[pick.game.home_team.name], [pick.game.away_team.name]] %>
+<% end %>
 <% end %>
 
         

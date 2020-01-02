@@ -7,29 +7,25 @@
 	<a1>Matchup</a1>
 <br />
 
-
-
-  
-
-
-
+<% @new_picks.each do |pick| %>
+  <%= simple_form_for(pick, remote: true, authenticity_token: true, html: { class: 'pick-form' } ) do |f| %>
+ 		<%= f.input :team_id, as: :radio_buttons, collection: [[pick.game.home_team.name, pick.game.ht_id], [pick.game.away_team.name, pick.game.at_id]] %>
+ 		<%= f.input :game_id, as: :hidden, input_html: { value: pick.game_id } %> 
+	<% end %>
+<% end %>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 	$(document).ready(function(){
   	$("#submitBtn").click(function(){        
-      $("#myForm").submit(); // Submit the form
+      $(".pick-form").submit(); // Submit the form
   	});
 	});
 </script>
 
 
 
-<% @new_picks.each do |pick| %>
- <%= simple_form_for(pick, remote: true, ) do |f| %>
- <%= f.input :team_id, as: :radio_buttons, collection: [[pick.game.home_team.name], [pick.game.away_team.name]] %>
-<% end %>
-<% end %>
+
 
         
     <button class="btn btn-success" id="submitBtn">Submit My Picks</button>

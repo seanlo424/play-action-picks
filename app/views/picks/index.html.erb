@@ -18,10 +18,7 @@
 <script>
 	$(document).ready(function(){
   	$("#submitBtn").click(function(){        
-      $(".pick-form").submit(function () {
-      	sendPick-Form(); // Submit the form
-        return false;
-      });
+      $(".pick-form").submit(); // Submit the form
   	});
 	});
 </script>

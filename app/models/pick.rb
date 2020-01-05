@@ -1,6 +1,6 @@
 class Pick < ApplicationRecord
-	validates :user, :password
-	
+	validate :user
+
 	belongs_to :user
 	belongs_to :game
 	belongs_to :team

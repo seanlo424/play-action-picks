@@ -2,7 +2,7 @@ class TheRundown
 
 	def self.get_games(week, season)
 		response = RestClient.get(
-		 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/2019-11-03?include=scores',
+		 'https://therundown-therundown-v1.p.rapidapi.com/sports/2/events/11-03-2019?include=scores',
 			"X-RapidAPI-Key" => '184481b68fmsh1d43618c3feaa81p104e7fjsnfe06f0a5c80e'
 		)
 		json_response=JSON.parse(response.body)

@@ -15,10 +15,12 @@ class PicksController < ApplicationController
 
   def index
     @games = Game.where(week: "9", season: "2019")
+    puts @games
     #if @games.empty
       #@games = TheRundown.get_games("9", "2019")
     #end
     @picks = current_user.picks.where(game_id: @games.pluck(:id))
+    puts @games
     @new_picks = []
     @games.each do |game|
       unless @picks.detect {|pick| pick.game_id == game.id} 
@@ -26,6 +28,7 @@ class PicksController < ApplicationController
       end
     end
     @new_picks.concat(@picks)
+    @new_picks.sort_by &:updated_at
   end
 
   def pick_params

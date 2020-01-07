@@ -1,6 +1,7 @@
 class PicksController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
+
   def create
     @pick = Pick.new(pick_params)
     @pick.user = current_user

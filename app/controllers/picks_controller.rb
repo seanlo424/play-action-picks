@@ -28,7 +28,8 @@ class PicksController < ApplicationController
       end
     end
     @new_picks.concat(@picks)
-    @new_picks.sort_by &:updated_at
+    #@new_picks.sort_by &:game_id
+
   end
 
   def pick_params

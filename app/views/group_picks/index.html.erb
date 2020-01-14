@@ -1,6 +1,11 @@
 <br />
 <div class="booyah-box col-10 offset-1 text-center">
 	<h1>Group Picks</h1>
+	<% User.all.each do |user| %>
+  <%= user.id %>
+  
+<% end %>
+
 </div>
 
 

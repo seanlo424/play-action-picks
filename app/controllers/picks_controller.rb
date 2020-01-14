@@ -28,7 +28,7 @@ class PicksController < ApplicationController
       end
     end
     @new_picks.concat(@picks)
-    #@new_picks.sort_by &:game_id
+    @new_picks = @new_picks.sort_by(&:game_id)
 
   end
 
